@@ -16,19 +16,17 @@ while isActive:
             rta = "S"
             while rta in ["S","s"]:
                 torneo.update(funciones.registrar())
-                print(torneo)
-                os.system("pause")
                 rta = input("Desea registrar otro jugador s(Si) o n(No): ")
         elif opMenu==2:
             rta = "S"
             while rta in ["S","s"]:
                 torneo.update(res.puntuacion(torneo))
-                print(torneo)
-                os.system("pause")
                 rta = input("Desea registrar resultados de otro partido s(Si) o n(No): ")            
         elif opMenu==3:
+            funciones.tabla(torneo)
             os.system("pause")
         elif opMenu==4:
+            funciones.campeon(torneo)
             os.system("pause")
         elif opMenu==5:
             isActive = False

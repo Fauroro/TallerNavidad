@@ -19,13 +19,11 @@ def subReg(men,may,id):
                 "tp":0
             }
         }
-        os.system("pause")
         return{id:jugador}
     else:
         print("El jugador no pertenece a esta categoria porque no cumple con la edad")
         os.system("pause")
         return {}
-
 
 idNov = 100
 idInte = 300
@@ -55,4 +53,105 @@ def registrar():
         return{}
     else:
         print("Opcion seleccionada inexstente.")
+        return{}
+
     
+def tabla(torneo:dict):
+    isActive = True
+    os.system("cls")
+    while isActive:
+        try:
+            print("\nSeleccione la categoria para ver los resultados: ")
+            print("1. Novato\n2. Intermedio\n3. Avanzado\n4. Cancelar")
+            cat = int(input(":) "))
+            os.system("cls")
+            print("ID\t\tNombre\t\tPJ\tPG\tPP\tPA\tTP")
+        except ValueError:
+            print("Error en el dato de ingreso, intente nuevamente")
+            os.system("pause")
+        else:
+            if cat==1:
+                novato = torneo.get('novato')
+                for x,y in novato.items():
+                    print(f"{x}\t\t{y['nombre']}\t\t{y['puntuacion']['pj']}\t{y['puntuacion']['pg']}\t{y['puntuacion']['pp']}\t{y['puntuacion']['pa']}\t{y['puntuacion']['tp']}")
+                isActive = False
+            elif cat==2:
+                intermedio = torneo.get('intermedio')
+                for x,y in intermedio.items():
+                    print(f"{x}\t\t{y['nombre']}\t\t{y['puntuacion']['pj']}\t{y['puntuacion']['pg']}\t{y['puntuacion']['pp']}\t{y['puntuacion']['pa']}\t{y['puntuacion']['tp']}")
+                isActive = False
+            elif cat==3:
+                avanzado = torneo.get('avanzado')
+                for x,y in avanzado.items():
+                    print(f"{x}\t\t{y['nombre']}\t\t{y['puntuacion']['pj']}\t{y['puntuacion']['pg']}\t{y['puntuacion']['pp']}\t{y['puntuacion']['pa']}\t{y['puntuacion']['tp']}")
+                isActive = False
+            elif cat==4:
+                isActive = False
+            else:
+                print("Opcion seleccionada inexistente.")
+                os.system("pause")
+                isActive = True 
+
+def campeon(torneo:dict):
+    os.system("cls")
+    isActive = True
+    tp = 0
+    pa = 0
+    while isActive:
+        try:
+            print("\nSeleccione la categoria para ver los resultados: ")
+            print("1. Novato\n2. Intermedio\n3. Avanzado\n4. Cancelar")
+            cat = int(input(":) "))
+            os.system("cls")
+        except ValueError:
+            print("Error en el dato de ingreso, intente nuevamente")
+            os.system("pause")
+        else:
+            if cat==1:
+                novato = torneo.get('novato')
+                for x,y in novato.items():
+                    if tp<y['puntuacion']['tp']:
+                        tp = y['puntuacion']['tp']
+                        pa = y['puntuacion']['pa']
+                        idCamp = x
+                    elif tp==y['puntuacion']['tp']:
+                        if pa<y['puntuacion']['pa']:
+                            tp = y['puntuacion']['tp']
+                            pa = y['puntuacion']['pa']
+                            idCamp = x
+                print(f"🏆🏆 El Campeon de la categoria Novato es: {novato[idCamp]['nombre']} con {novato[idCamp]['puntuacion']['tp']} puntos 🏆🏆")
+                isActive = False
+            elif cat==2:
+                intermedio = torneo.get('intermedio')
+                for x,y in intermedio.items():
+                    if tp<y['puntuacion']['tp']:
+                        tp = y['puntuacion']['tp']
+                        pa = y['puntuacion']['pa']
+                        idCamp = x
+                    elif tp==y['puntuacion']['tp']:
+                        if pa<y['puntuacion']['pa']:
+                            tp = y['puntuacion']['tp']
+                            pa = y['puntuacion']['pa']
+                            idCamp = x
+                print(f"🏆🏆 El Campeon de la categoria Intermedio es: {intermedio[idCamp]['nombre']} con {intermedio[idCamp]['puntuacion']['tp']} puntos 🏆🏆")
+                isActive = False
+            elif cat==3:
+                avanzado = torneo.get('avanzado')
+                for x,y in avanzado.items():
+                    if tp<y['puntuacion']['tp']:
+                        tp = y['puntuacion']['tp']
+                        pa = y['puntuacion']['pa']
+                        idCamp = x
+                    elif tp==y['puntuacion']['tp']:
+                        if pa<y['puntuacion']['pa']:
+                            tp = y['puntuacion']['tp']
+                            pa = y['puntuacion']['pa']
+                            idCamp = x
+                print(f"🏆🏆 El Campeon de la categoria Avanzado es: {avanzado[idCamp]['nombre']} con {avanzado[idCamp]['puntuacion']['tp']} puntos 🏆🏆")
+                isActive = False
+            elif cat==4:
+                isActive = False
+            else:
+                print("Opcion seleccionada inexistente.")
+                os.system("pause")
+                isActive = True 
