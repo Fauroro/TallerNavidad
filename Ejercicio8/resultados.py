@@ -2,18 +2,17 @@ import os
 def winSet(cat:dict,jug,puntos1,jugp,puntos2):
     pg = cat[jug]['puntuacion']['pg'] + 1
     cat[jug]['puntuacion'].update({'pg':pg})
-    pa = cat[jug]['puntuacion']['pg'] + puntos1
+    pa = cat[jug]['puntuacion']['pa'] + puntos1
     cat[jug]['puntuacion'].update({'pa':pa})
-    pa = cat[jugp]['puntuacion']['pg'] + puntos2
+    pa = cat[jugp]['puntuacion']['pa'] + puntos2
     cat[jugp]['puntuacion'].update({'pa':pa})
-    pp = cat[jugp]['puntuacion']['pg'] + 1
+    pp = cat[jugp]['puntuacion']['pp'] + 1
     cat[jugp]['puntuacion'].update({'pp':pp})
-    tp = cat[jug]['puntuacion']['pg'] + 1
-    cat[jug]['puntuacion'].update({'pp':tp})
+    tp = cat[jug]['puntuacion']['tp'] + 2
+    cat[jug]['puntuacion'].update({'tp':tp})
 
 
 def puntuacion(torneo:dict):
-    # print(torneo.get("novato"))
     os.system("cls")
     print("Jugadores inscritos:")
     for x in torneo:
@@ -55,8 +54,8 @@ def puntuacion(torneo:dict):
                     novato[p2]['puntuacion'].update({'pj':pj})
 
                     for i in range(1,sets+1):
-                        marc1 = int(input("Ingrese el marcador para el jugador A: "))
-                        marc2 = int(input("Ingrese el marcador para el jugador B: "))
+                        marc1 = int(input(f"Ingrese el marcador de {novato[p1]['nombre']}: "))
+                        marc2 = int(input(f"Ingrese el marcador de {novato[p2]['nombre']}: "))
                         if marc1<marc2:
                             setP2 +=1
                             puntos1 = puntos1 + marc1 - marc2
@@ -70,25 +69,9 @@ def puntuacion(torneo:dict):
                             
                     if setP2<setP1:
                         winSet(novato,p1,puntos1,p2,puntos2)
-                        # pg = novato[f'{p1}']['puntuacion']['pg'] + 1
-                        # novato[f'{p1}']['puntuacion'].update({'pg':pg})
-                        # pa = novato[f'{p1}']['puntuacion']['pg'] + puntos1
-                        # novato[f'{p1}']['puntuacion'].update({'pa':pa})
-                        # pp = novato[f'{p1}']['puntuacion']['pg'] + 1
-                        # novato[f'{p1}']['puntuacion'].update({'pp':pp})
-                        # tp = novato[f'{p1}']['puntuacion']['pg'] + 1
-                        # novato[f'{p1}']['puntuacion'].update({'pp':tp})
                         
                     if setP1<setP2:
                         winSet(novato,p2,puntos2,p1,puntos1)
-                        # pg = novato[f'{p2}']['puntuacion']['pg'] + 1
-                        # novato[f'{p2}']['puntuacion'].update({'pg':pg})
-                        # pa = novato[f'{p2}']['puntuacion']['pg'] + puntos1
-                        # novato[f'{p2}']['puntuacion'].update({'pa':pa})
-                        # pp = novato[f'{p1}']['puntuacion']['pg'] + 1
-                        # novato[f'{p1}']['puntuacion'].update({'pp':pp})
-                        # tp = novato[f'{p1}']['puntuacion']['pg'] + 1
-                        # novato[f'{p1}']['puntuacion'].update({'pp':tp})
 
 
 
