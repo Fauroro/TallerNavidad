@@ -22,7 +22,8 @@ while isActive:
         elif opMenu==2:
             rta = "S"
             while rta in ["S","s"]:
-                res.puntuacion(torneo)
+                torneo.update(res.puntuacion(torneo))
+                print(torneo)
                 os.system("pause")
                 rta = input("Desea registrar resultados de otro partido s(Si) o n(No): ")            
         elif opMenu==3:
