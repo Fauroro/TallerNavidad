@@ -16,3 +16,5 @@ while (cont<3):
 
 os.system("cls")
 print(f"La sumatoria de los numeros ingresados es = {sumNum}")
+
+os.system("pause")

@@ -66,7 +66,7 @@ def puntuacion(torneo:dict):
             os.system("pause")
         else:
             if cat==1:
-                if len(torneo["novato"])<2:
+                if len(torneo["novato"])<5:
                     print(f"No es posible iniciar los juegos en la categoria seleccionada por falta de participantes, faltan {5-len(torneo['novato'])} jugadores ")
                     os.system("pause")
                     isActive = False
@@ -75,7 +75,7 @@ def puntuacion(torneo:dict):
                     marcadores(novato)
                     return {'novato':novato}
             elif cat==2:
-                if len(torneo["intermedio"])<2:
+                if len(torneo["intermedio"])<5:
                     print(f"No es posible iniciar los juegos en la categoria seleccionada por falta de participantes, faltan {5-len(torneo['intermedio'])} jugadores ")
                     os.system("pause")
                     isActive = False
@@ -85,7 +85,7 @@ def puntuacion(torneo:dict):
                     return {'intermedio':intermedio}
                 
             elif cat==3:
-                if len(torneo["avanzado"])<2:
+                if len(torneo["avanzado"])<5:
                     print(f"No es posible iniciar los juegos en la categoria seleccionada por falta de participantes, faltan {5-len(torneo['avanzado'])} jugadores ")
                     os.system("pause")
                     isActive = False
