@@ -25,7 +25,7 @@
 	 opMenu|	in	| int| Opción del menú principal que el usuario elige
   nombre| in| str|Nombre de la ciudad
   sismos|out|list|Lista principal que almacena en cada item la informacion de cada ciudad
-  ciudad|out|list|Variable que almacena la informacion de nombre y registros de cada ciudad
+  ciudad|out|list|Sublista que almacena la informacion de nombre y registros de cada ciudad
   suma|out|float|Variable encargada de acumular la sumatoria de movimientos teluricos para cada ciudad
   promedio|out|float|Variable utilizada para el calculo de promedios de los registros por ciudad
 
